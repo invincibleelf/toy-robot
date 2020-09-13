@@ -8,18 +8,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Profile;
 
-import com.example.toyrobot.controller.RobotSimulationController;
 import com.example.toyrobot.model.Report;
 import com.example.toyrobot.model.RobotSimulation;
+import com.example.toyrobot.service.RobotSimulationService;
 
 @SpringBootApplication
+@Profile("!test")
 public class ToyRobotApplication implements CommandLineRunner{
 	
 	private final static Logger logger = LoggerFactory.getLogger(ToyRobotApplication.class);
 	
 	@Autowired
-	private RobotSimulationController robotSimulationController;
+	private RobotSimulationService robotSimulationController;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ToyRobotApplication.class, args);
