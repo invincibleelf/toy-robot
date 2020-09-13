@@ -3,22 +3,24 @@ package com.example.toyrobot.model;
 public class Robot {
 	// Maximum and minimum positions a robot can be placed to represent 5 by 5 grid
 	public static final Integer MAX_POSITION = 4;
-    public static final Integer MIN_POSITION = 0;
-    
-    private Integer xPosition;
-    private Integer yPosition;
+	public static final Integer MIN_POSITION = 0;
+
+	private Integer xPosition;
+	private Integer yPosition;
 
 	private CardinalDirection cardinalDirection;
-    
-    public Robot() {}
-    
-    public Robot(Integer xPosition, Integer yPosition , CardinalDirection cardinalDirection) {
-    	this.xPosition = xPosition;
-    	this.yPosition = yPosition;;
-    	this.cardinalDirection = cardinalDirection;
-    }
 
-    public Integer getxPosition() {
+	public Robot() {
+	}
+
+	public Robot(Integer xPosition, Integer yPosition, CardinalDirection cardinalDirection) {
+		this.xPosition = xPosition;
+		this.yPosition = yPosition;
+		;
+		this.cardinalDirection = cardinalDirection;
+	}
+
+	public Integer getxPosition() {
 		return xPosition;
 	}
 
@@ -41,8 +43,29 @@ public class Robot {
 	public void setCardinalDirection(CardinalDirection cardinalDirection) {
 		this.cardinalDirection = cardinalDirection;
 	}
-	
+
 	public String getCurrentStatus() {
 		return String.join(",", xPosition.toString(), yPosition.toString(), cardinalDirection.toString());
 	}
+
+	public boolean isOnTable() {
+		return xPosition != null && yPosition != null && cardinalDirection != null;
+	}
+
+	public void increaseXPosition() {
+		xPosition++;
+	}
+
+	public void increaseYPosition() {
+		yPosition++;
+	}
+
+	public void decreaseXPosition() {
+		xPosition--;
+	}
+
+	public void decreaseYPosition() {
+		yPosition--;
+	}
+
 }

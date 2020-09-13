@@ -45,7 +45,8 @@ public class ToyRobotApplication implements CommandLineRunner{
 		
 		Report report = robotSimulationController.simulate(robotSimulation);
 
-		logger.info("Robot Position is " + report.getOutput());
+		logger.info("Robot Final Position is " + report.getOutput());
+		System.out.println("Robot Final Position is " + report.getOutput());
 		
 	}
 

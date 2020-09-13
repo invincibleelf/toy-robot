@@ -35,7 +35,7 @@ public class RobotSimulationService {
 			BaseCommand command = Utils.getCommand(commandString);
 
 			if (command != null) {
-				command.execute(robot);
+				command.execute(robot, report);
 			} else {
 				logger.info("Wrong Command " + commandString);
 			}
