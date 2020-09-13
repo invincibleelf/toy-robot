@@ -16,11 +16,15 @@ public class RobotSimulationService {
 
 	private final static Logger logger = LoggerFactory.getLogger(RobotSimulationService.class);
 
-	@Autowired
 	private Robot robot;
 
-	@Autowired
 	private Report report;
+	
+	@Autowired
+	public RobotSimulationService(Robot robot, Report report) {
+		this.robot = robot;
+		this.report = report;
+	}
 
 	/**
 	 * Method to handle robot simulation logic
