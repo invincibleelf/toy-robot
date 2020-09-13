@@ -21,10 +21,14 @@ public class PlaceCommand extends BaseCommand {
 	public void execute(Robot robot, Report report) {
 		int start = commandString.indexOf(CommandType.PLACE.name()) + CommandType.PLACE.name().length();
 		String argsPlace = commandString.substring(start, commandString.length());
+		
+		// Split command string to get arrays of place command parameters
 		String[] args = argsPlace.split(",");
+		
 		Integer xPosition = Integer.parseInt(args[0].trim());
 		Integer yPosition = Integer.parseInt(args[1].trim());
 		
+		// Check if Robot position is at edges of the grid and if true, ignore the move command	
 		if (xPosition <= Robot.MAX_POSITION && xPosition >= Robot.MIN_POSITION
                 && yPosition <= Robot.MAX_POSITION && yPosition >= Robot.MIN_POSITION) {
 			robot.setxPosition(xPosition);
